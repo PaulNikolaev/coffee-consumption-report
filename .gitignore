@@ -4,10 +4,6 @@ venv/
 env/
 .env/
 
-# Данные и архивы
-coord_data/
-*.zip
-
 # Python
 __pycache__/
 *.py[cod]
@@ -30,7 +26,14 @@ wheels/
 .installed.cfg
 *.egg
 
- IDE / ОС
+# Инструменты
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / ОС
 .idea/
 .vscode/
 *.swp

@@ -1,0 +1,1 @@
+"""Coffee consumption report package."""
