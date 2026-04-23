@@ -1,20 +1,6 @@
-from collections.abc import Sequence
-
 from coffee_report.exceptions import UnknownReportError
-from coffee_report.models import VideoMetrics
-from coffee_report.reports.base import BaseReport, ReportRow
-
-
-class ClickbaitReport(BaseReport):
-    """Placeholder report reserved for the clickbait implementation."""
-
-    name = "clickbait"
-
-    def build(self, records: Sequence[VideoMetrics]) -> list[ReportRow]:
-        raise NotImplementedError(
-            "The clickbait report implementation will be added in the next stage."
-        )
-
+from coffee_report.reports.base import BaseReport
+from coffee_report.reports.clickbait import ClickbaitReport
 
 REPORTS: dict[str, type[BaseReport]] = {
     ClickbaitReport.name: ClickbaitReport,
