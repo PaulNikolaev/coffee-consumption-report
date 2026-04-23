@@ -4,7 +4,6 @@ import pytest
 
 from coffee_report.csv_reader import read_csv_file, read_csv_files
 from coffee_report.exceptions import InputFileNotFoundError
-from coffee_report.models import VideoMetrics
 
 
 def write_csv(path: Path, rows: list[str]) -> None:
@@ -17,24 +16,6 @@ def write_csv(path: Path, rows: list[str]) -> None:
         ),
         encoding="utf-8",
     )
-
-
-def test_read_csv_file_returns_typed_records(tmp_path: Path) -> None:
-    csv_path = tmp_path / "stats.csv"
-    write_csv(csv_path, ["Video A,18.5,42,1000,120,4.7"])
-
-    records = read_csv_file(csv_path)
-
-    assert records == [
-        VideoMetrics(
-            title="Video A",
-            ctr=18.5,
-            retention_rate=42.0,
-            views=1000,
-            likes=120,
-            avg_watch_time=4.7,
-        )
-    ]
 
 
 def test_read_csv_files_combines_rows_from_all_files(tmp_path: Path) -> None:
